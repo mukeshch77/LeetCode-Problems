@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PascalsTriangle {
+public class PascalsTriangleOne {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> triangle = new ArrayList<>();
 
