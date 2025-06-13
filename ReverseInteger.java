@@ -5,8 +5,7 @@ public class ReverseInteger {
             int temp = x % 10;
             x = x / 10;
             
-            if (rev > 0 && rev > (Integer.MAX_VALUE -temp) / 10 ||
-            rev < 0 && rev < (Integer.MIN_VALUE -temp) / 10)
+            if (rev > Integer.MAX_VALUE / 10 || rev < Integer.MIN_VALUE / 10)
                 return 0;
             
             rev = rev * 10 + temp;
