@@ -1,20 +1,28 @@
 public class ValidMountainArray {
     public boolean validMountainArray(int[] arr) {
+        int index = 0;
         int n = arr.length;
-        if (n < 3) return false;
 
-        int i = 0;
-
-        while (i + 1 < n && arr[i] < arr[i + 1]) {
-            i++;
+        //find all increasing seq (find the peak)
+        while (index < n-1){
+            if(arr[index] < arr[index+1]){
+                index++;
+            }else{
+                break;
+            }
+        }
+        if(index == 0 || index == n-1){
+            return false;
         }
 
-        if (i == 0 || i == n - 1) return false;
-
-        while (i + 1 < n && arr[i] > arr[i + 1]) {
-            i++;
+        //find all decreasing seq 
+        while (index < n-1){
+            if(arr[index] > arr[index+1]){
+                index++;
+            }else{
+                break;
+            }
         }
-
-        return i == n - 1;
+        return (index == n-1);
     }
 }
