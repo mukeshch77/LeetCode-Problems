@@ -3,8 +3,7 @@ public class MountainArray {
     public static void main(String[] args) {
         int arr[] = {2, 4, 7, 9, 11, 18, 8, 3, 1};
         int arr1[] = {2, 6, 9, 11, 18, 5, 1};
-        int arr2[] = {6, 9, 11, 18, 1, 2, 5};
-        int arr3[] = {19, 2, 19, 19, 19, 19};
+        
         // boolean ans1 = validMountainArray(arr);
         // System.out.println(ans1);
 
@@ -13,9 +12,6 @@ public class MountainArray {
 
         // int ans3 = findInMountainArray(arr1, 5);
         // System.out.println(ans3);
-        
-        boolean ans4 = findInRotatedArrayWithDuplicates(arr3, 2);
-        System.out.println(ans4);
     }
 
     static boolean validMountainArray(int[] arr) {
@@ -99,37 +95,4 @@ public class MountainArray {
         
     }
 
-    static boolean findInRotatedArrayWithDuplicates(int[] nums, int target) {
-        int start = 0;
-        int end = nums.length-1;
-
-        while (start <= end){
-            int mid = start + (end - start) / 2;
-            if(target == nums[mid]){
-                return true;
-            }
-
-            /* if start, mid and end all are same then we can't guarentee which part is sorted so we will trim down the space */
-            if(nums[start] == nums[mid] && nums[mid] == nums[end]){
-                start++;
-                end--;
-            }else if(nums[start] <= nums[mid]){
-                // check ans is left side or not??
-                if(target >= nums[start] && target < nums[mid]){
-                    end = mid - 1;
-                }else{
-                    start = mid + 1;
-                }
-            }else{// right side is sorted array
-
-                // check ans is left side or not??
-                if(target > nums[mid] && target <= nums[end]){
-                    start = mid + 1;
-                }else{
-                    end = mid - 1;
-                }   
-            }
-        }
-        return false;
-    }
 }
