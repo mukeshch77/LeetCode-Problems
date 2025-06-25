@@ -3,47 +3,43 @@ import java.util.List;
 
 public class SpiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> result = new ArrayList<>();
-        
-        if (matrix == null || matrix.length == 0) return result;
-        
-        int top = 0;
-        int bottom = matrix.length - 1;
-        int left = 0;
-        int right = matrix[0].length - 1;
-        
-        while (top <= bottom && left <= right) {
-            // Traverse from Left to Right
-            for (int i = left; i <= right; i++) {
-                result.add(matrix[top][i]);
+        List<Integer> res = new ArrayList<>();
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int startRow = 0;
+        int endRow = m - 1;
+        int startCol = 0;
+        int endCol = n - 1;
+
+        while (startRow <= endRow && startCol <= endCol) {
+            // first row
+            for (int j = startCol; j <= endCol; j++) {
+                res.add(matrix[startRow][j]);
             }
-            top++;
-            
-            // Traverse from Top to Bottom
-            for (int i = top; i <= bottom; i++) {
-                result.add(matrix[i][right]);
+            startRow++;
+
+            // end col
+            for (int i = startRow; i <= endRow; i++) {
+                res.add(matrix[i][endCol]);
             }
-            right--;
-            
-            // Make sure we are now on a different row
-            if (top <= bottom) {
-                // Traverse from Right to Left
-                for (int i = right; i >= left; i--) {
-                    result.add(matrix[bottom][i]);
+            endCol--;
+
+            if (startRow <= endRow) {
+                // end row
+                for (int j = endCol; j >= startCol; j--) {
+                    res.add(matrix[endRow][j]);
                 }
-                bottom--;
+                endRow--;
             }
-            
-            // Make sure we are now on a different column
-            if (left <= right) {
-                // Traverse from Bottom to Top
-                for (int i = bottom; i >= top; i--) {
-                    result.add(matrix[i][left]);
+
+            if (startCol <= endCol) {
+                // first col
+                for (int i = endRow; i >= startRow; i--) {
+                    res.add(matrix[i][startCol]);
                 }
-                left++;
+                startCol++;
             }
         }
-        
-        return result;
+        return res;
     }
 }
