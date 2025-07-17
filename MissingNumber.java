@@ -4,8 +4,8 @@ public class MissingNumber {
         int expectedSum = n * (n + 1) / 2;
         int actualSum = 0;
 
-        for (int num : nums) {
-            actualSum += num;
+        for(int i = 0; i < n; i++){
+            actualSum += nums[i];
         }
 
         return expectedSum - actualSum;
