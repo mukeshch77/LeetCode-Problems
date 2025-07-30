@@ -33,21 +33,21 @@ public class LargestRectangleinHistogram {
     //     return res;
     // }
 
-    public static int[] findNextSmaller(int arr[]){
-        int n = arr.length;
-        Stack<Integer> stack = new Stack<>();
-        int res[] = new int[n];
-        for (int i = n - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
-                stack.pop();
-            }
-            if (stack.isEmpty()) {
-                res[i] = n;
-            } else {
-                res[i] = stack.peek();
-            }
-            stack.push(i);
-        }
-        return res;
-    }
+    // public static int[] findNextSmaller(int arr[]){
+    //     int n = arr.length;
+    //     Stack<Integer> stack = new Stack<>();
+    //     int res[] = new int[n];
+    //     for (int i = n - 1; i >= 0; i--) {
+    //         while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+    //             stack.pop();
+    //         }
+    //         if (stack.isEmpty()) {
+    //             res[i] = n;
+    //         } else {
+    //             res[i] = stack.peek();
+    //         }
+    //         stack.push(i);
+    //     }
+    //     return res;
+    // }
 }
