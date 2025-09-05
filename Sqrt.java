@@ -1,5 +1,5 @@
 public class Sqrt {
-    int mySqrt(int x) {
+    public int mySqrt(int x) {
         int start = 1;
         int end = x;
 
